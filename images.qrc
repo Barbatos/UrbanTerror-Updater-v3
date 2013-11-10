@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/icon_urt.png</file>
+        <file>images/UrbanTerror_updater.ico</file>
+        <file>images/background_urtupdater.png</file>
+        <file>images/urtupdater.png</file>
+        <file>images/urtupdater.ico</file>
+    </qresource>
+</RCC>
