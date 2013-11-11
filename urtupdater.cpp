@@ -153,7 +153,7 @@ void UrTUpdater::checkGameFolder()
     assets.setNameFilters(filters);
     filesFrom41 = assets.entryList(QDir::Files);
 
-    // We found 4.1 zpacks, warn this n00b and quit!
+    // We found 4.1 zpacks, warn and quit
     if(!filesFrom41.isEmpty())
     {
         QMessageBox::critical(this, "Installing 4.2 over 4.1", "You are trying to install Urban Terror 4.2 in the same folder as Urban Terror 4.1! Please create a new folder for 4.2");
