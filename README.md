@@ -19,7 +19,7 @@ Feel free to fork this repository and send pull requests. :)
 Compiling on Windows, Linux and Mac
 -----------
 
-We recommand you using Qt >= *5.1.1* and Qt GUI >= *2.8.1*. 
-Open the*UrbanTerrorUpdater.pro* file with Qt GUI and configure it to use the compiler that suits your needs. 
+We recommand you using Qt >= **5.1.1** and Qt GUI >= **2.8.1**. 
+Open the **UrbanTerrorUpdater.pro** file with Qt GUI and configure it to use the compiler that suits your needs. 
 The updater was built using the MinGW 4.8 32 bit compiler.
 
