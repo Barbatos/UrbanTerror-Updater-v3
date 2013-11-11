@@ -214,8 +214,57 @@ void DownloadM::downloadProgress ( qint64 bytesReceived, qint64 bytesTotal )
 
 void DownloadM::error(QNetworkReply::NetworkError code)
 {
-    QMessageBox::critical(0, "Download error", "Could not download the files. Please check your internet connection. <br />"
-                          "You can ask for help on the official website: www.urbanterror.info");
-    qApp->quit();
+    QString error = "";
+    bool critical = false;
+
+    switch(code){
+        case QNetworkReply::ConnectionRefusedError:
+            error = "Error: the remote server refused the connection. Please try again later.";
+            critical = true;
+            break;
+
+        case QNetworkReply::RemoteHostClosedError:
+            error = "Error: the remote server closed the connection prematurely. Please try again later.";
+            break;
+
+        case QNetworkReply::HostNotFoundError:
+            error = "Error: the remote server could not be found. Please report this issue on the website: http://www.urbanterror.info";
+            critical = true;
+            break;
+
+        case QNetworkReply::TimeoutError:
+            error = "Error: the connection to the remote server timed out. Please try again.";
+            break;
+
+        case QNetworkReply::TemporaryNetworkFailureError:
+            error = "Error: the connection to the remote server was broken due to disconnection from the network. Please try again.";
+            break;
+
+        case QNetworkReply::ContentNotFoundError:
+            error = "Error: the remote content could not be found. Please report this issue on our website: http://www.urbanterror.info";
+            break;
+
+        case QNetworkReply::UnknownNetworkError:
+            error = "Error: an unknown network-related error was encountered. Please try again";
+            break;
+
+        case QNetworkReply::UnknownContentError:
+            error = "Error: an unknown content-related error was encountered. Please try again";
+            break;
+
+        default:
+        case QNetworkReply::NoError:
+            break;
+    }
+
+    if(!error.isEmpty()){
+        if(critical == true){
+            QMessageBox::critical(0, "Download error", error);
+            qApp->quit();
+        }
+        else {
+            QMessageBox::information(0, "Download error", error);
+        }
+    }
 }
 
