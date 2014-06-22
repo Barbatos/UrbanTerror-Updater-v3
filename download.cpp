@@ -200,13 +200,13 @@ void DownloadM::downloadProgress ( qint64 bytesReceived, qint64 bytesTotal )
     speed = bytesReceived * 1000.0 / downloadTime.elapsed();
 
     if (speed < 1024) {
-        unit = "b/s";
+        unit = "B/s";
     } else if (speed < 1024*1024) {
         speed /= 1024;
-        unit = "kb/s";
+        unit = "KB/s";
     } else {
         speed /= 1024*1024;
-        unit = "Mb/s";
+        unit = "MB/s";
     }
 
     emit progress(percentage, speed, unit);
